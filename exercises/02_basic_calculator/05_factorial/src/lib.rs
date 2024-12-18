@@ -10,6 +10,30 @@
 //
 // Use only what you learned! No loops yet, so you'll have to use recursion!
 
+pub fn factorial(n: u128) -> u128{
+    let mut total: u128 = 1;
+    let pre_total = total;
+    let mut a = n;
+    println!("a is: {}", a);
+    total *= a;
+    println!("The total of this factorial is: {}",total);
+    
+    if a > 1 {
+        a -= 1;
+        println!("This is the: {}, iteration",a);
+        
+        total *= factorial(a);
+        
+    }
+    else{
+        total = pre_total;
+    }
+    
+
+    total
+    
+}
+
 #[cfg(test)]
 mod tests {
     use crate::factorial;

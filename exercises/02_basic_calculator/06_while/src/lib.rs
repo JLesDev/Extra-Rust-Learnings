@@ -4,7 +4,34 @@ pub fn factorial(n: u32) -> u32 {
     // interprets as "I'll get back to this later", thus
     // suppressing type errors.
     // It panics at runtime.
-    todo!()
+    let mut total: u32 = 1;
+    let pre_total = total;
+    let mut a = n;
+    println!("a is: {}", a);
+    //total *= a;
+    println!("The total of this factorial is: {}",total);
+    
+    while a >= 1 {
+        total *= a;
+        a -= 1;
+        
+    }
+
+    /*if a > 1 {
+        a -= 1;
+        println!("This is the: {}, iteration",a);
+        
+        total *= factorial(a);
+        
+    }
+    else{
+        total = pre_total;
+    }*/
+    
+    total
+
+
+
 }
 
 #[cfg(test)]
