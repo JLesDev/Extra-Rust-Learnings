@@ -5,26 +5,62 @@ struct Ticket {
 }
 
 impl Ticket {
-    // TODO: implement the `new` function.
+
+    //  TODO: implement the `new` function.
     //  The following requirements should be met:
     //   - Only `To-Do`, `In Progress`, and `Done` statuses are allowed.
     //   - The `title` and `description` fields should not be empty.
-    //   - the `title` should be at most 50 bytes long.
-    //   - the `description` should be at most 500 bytes long.
+    //   - The `title` should be at most 50 bytes long.
+    //   - The `description` should be at most 500 bytes long.
     //  The method should panic if any of the requirements are not met.
     //  You can find the needed panic messages in the tests.
     //
     // You'll have to use what you learned in the previous exercises,
     // as well as some `String` methods. Use the documentation of Rust's standard library
     // to find the most appropriate options -> https://doc.rust-lang.org/std/string/struct.String.html
+
     fn new(title: String, description: String, status: String) -> Self {
-        todo!();
+        
+        if status != String::from("To-Do") && status != String::from("In Progress") && status != String::from("Done") {
+            panic!("Only `To-Do`, `In Progress`, and `Done` statuses are allowed");
+        }
+
+        if title == String::from(""){
+            panic!("Title cannot be empty");
+        }
+
+        if description == String::from(""){
+            panic!("Description cannot be empty");
+        }
+
+        if title.len() > 50{
+            panic!("Title cannot be longer than 50 bytes");
+        }
+
+        if description.len() > 500{
+            panic!("Description cannot be longer than 500 bytes");
+        }
+
+        
+        
+
+        /*match status {
+            String::From("To_do") => Okay,
+            String::From("In Progress") => ,
+            String::From("Done") => ,
+            _ => panic!(),
+
+        }*/
+
+
         Self {
             title,
             description,
             status,
         }
     }
+
+
 }
 
 #[cfg(test)]
